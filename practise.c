@@ -6,31 +6,24 @@ int main()
     int n;
     scanf("%d", &n);
     // array declaration
-    int arr[n+1];
+    int arr[n];
 
-    // taking input on array
+    // taking input for array element
     for(int i = 0; i<n; i++){
         scanf("%d", &arr[i]);
     }
 
-    // taking input for index and value 
-    int index, value;
-    scanf("%d %d", &index, &value);
+    // taking input for index that value will be deleted 
+    int index;
+    scanf("%d", &index);
 
-    // shifting elements to make space for the new value
-    int arraySize = n;
-    while (arraySize > index)
-    {
-        arr[arraySize] = arr[arraySize-1];
-        arraySize--;
+    // shifting elements from index to delete the value
+    for(int i = index; i<n-1; i++){
+        arr[i] = arr[i+1];
     }
-    
-    // placing the value at the shifted index
-    arr[index] = value;
 
     // printing the updated array
-
-    for (int i = 0; i <= n; i++)
+    for (int i = 0; i < n-1; i++)
     {
         printf("%d ", arr[i]);
     }
