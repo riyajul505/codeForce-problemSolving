@@ -15,7 +15,7 @@ int main(){
 
         if(sizeOfFirstString > sizeOfSecondString){
             int n = 0;
-            while(n!=sizeOfSecondString){
+            while(n<sizeOfSecondString){
                 printf("%c%c",firstString[n],secondString[n]);
                 n++;
             }
@@ -25,7 +25,7 @@ int main(){
         }
         else if(sizeOfFirstString < sizeOfSecondString){
             int n = 0;
-            while(n!=sizeOfFirstString){
+            while(n<sizeOfFirstString){
                 printf("%c%c",firstString[n],secondString[n]);
                 n++;
             }
@@ -36,7 +36,7 @@ int main(){
         }
         else{
             int n = 0;
-            while(n!=sizeOfFirstString){
+            while(n<sizeOfFirstString){
                 printf("%c%c",firstString[n],secondString[n]);
                 n++;
             }
