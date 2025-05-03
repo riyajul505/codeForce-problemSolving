@@ -13,18 +13,10 @@ int main(){
 		for(int j=1; j<input-i; j++){
 			printf(" ");
 		}
+		for(int k=0; k<=i ; k++){
+			printf("%d ", k+1);
+		}
 
-		// left pyramid
-		for(int k=0; k<i+1; k++){
-			printf("*");
-		}
-		// right pyramid
-		for(int m=0; m<i; m++){
-			if(i==0){
-				continue;
-			}
-			printf("*", i);
-		}
 		printf("\n");
 	}
 	return 0;
