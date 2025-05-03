@@ -1,42 +1,33 @@
 #include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <pthread.h>
-#include <semaphore.h>
 
-// int t_id[]={1,2};
-void *print_fibonacci();
-void *find_number();
+
 int input;
 
 int main(){
-    pthread_t t[2];
     
-    
-    pthread_create(&t[0],NULL,print_fibonacci,NULL);
-    pthread_join(t[0],NULL);
-    
-	pthread_create(&t[1],NULL,find_number,NULL);
-    pthread_join(t[1],NULL);
-	
-	printf("input value: %d", sizeof(arr)/arr[0]);
-	
+	int input;
+	scanf("%d", &input);
+	// pyramid pattern
+	for(int i=0; i<input; i++){
+		// printing space
+		for(int j=1; j<input-i; j++){
+			printf(" ");
+		}
+
+		// left pyramid
+		for(int k=0; k<i+1; k++){
+			printf("*");
+		}
+		// right pyramid
+		for(int m=0; m<i; m++){
+			if(i==0){
+				continue;
+			}
+			printf("*", i);
+		}
+		printf("\n");
+	}
 	return 0;
 }
 
-void *print_fibonacci(){
-    
-	printf("Enter the term of fibonacci sequence: ");
-	scanf("%d", &input);
-	return NULL;
-	
-}
 
-
-void *find_number(){
-    int n;
-	printf("How many numbers you are willing to search?:");
-	scanf("%d", &n);
-	return NULL;
-	
-}
