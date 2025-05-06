@@ -1,60 +1,41 @@
-#include <stdio.h>
+#include<stdio.h>
 #include<string.h>
 #include<stdbool.h>
-
-bool isPalindrome(char* s) {
-    int stringLength = strlen(s);
-    char newArray[stringLength+1];
-	// int firstCharacterAscii = s[0];
-	// if((firstCharacterAscii>90) && (firstCharacterAscii<97)){
-    //     return false;
-    // }
-	// else if(firstCharacterAscii < 65){
-	// 	return false;
-	// }
-	// else if(firstCharacterAscii > 122){
-	// 	return false;
-	// }
-
-	// pre processing
-	int newArrayIndex = 0;
-    for(int i=0; i<stringLength; i++){
-        int asciiValue = (int)s[i];
-		
-        if((asciiValue>=65) && (asciiValue<=90)){
-			char character = (char)asciiValue+32;
-            newArray[newArrayIndex] = character;
-			newArrayIndex++;
-        }
-        else if(asciiValue>=97 && asciiValue<=122){
-			char character = (char)asciiValue;
-            newArray[newArrayIndex] = character;
-			newArrayIndex++;
-			
-        }
-		else if(asciiValue>=48 && asciiValue<=57){
-			char character = (char)asciiValue;
-			newArray[newArrayIndex] = character;
-			newArrayIndex++;
-		}
-    }
-
-    int newArrayLength = newArrayIndex;
-    int n=0;
-	// if(newArrayLength == 0 ) return true;
-	// if((newArrayLength == 1) &&  (stringLength==1)) return true;
-    while(n<newArrayLength){
-        if(newArray[n] != newArray[newArrayLength-1-n]){
-            return 0;
-        }
-        n++;
-    }
-    
-    return 1;
+#include<ctype.h>
+bool isAlphaNum(char c){
+	if((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z')){
+		return true;
+	}
+	else if(c>= '0' && c <= '9'){
+		return true;
+	}
+	return false;
 }
+bool isPalindrome(char* s) {
+
+	int start=0, end = strlen(s)-1;
+	while (start < end)
+	{
+		
+		if(!isAlphaNum(s[start])){
+			start++;
+			continue;
+		}
+		if(!isAlphaNum(s[end])){
+			end--;
+			continue;
+		}
+		if(tolower(s[start]) != tolower(s[end])){
+			return false;
+		}
+		start++; end--;
+	}
+	return true;
+		
+ }
 
 int main(){
-    char *str = "a";
+    char *str = "0P";
 	bool result = isPalindrome(str);
 	printf("%d result", result);
 	
