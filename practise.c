@@ -10,7 +10,7 @@ bool isAlphaNum(char c){
 		return true;
 	}
 	return false;
-}
+} 
 bool isPalindrome(char* s) {
 
 	int start=0, end = strlen(s)-1;
@@ -24,7 +24,7 @@ bool isPalindrome(char* s) {
 		if(!isAlphaNum(s[end])){
 			end--;
 			continue;
-		}
+		} 
 		if(tolower(s[start]) != tolower(s[end])){
 			return false;
 		}
